@@ -10,17 +10,18 @@ namespace DataLibrary.BusinessLogic
     public static class GigManager
     {
 
-        public static int PutInGig(string title, string type, int footprint, string description, int zipcode, int price)
+        public static int PutInGig(string ownerId, string title, string type, int footprint, string description, int zipcode, int price)
         {
             Gig gig = new Gig
             {
+                OwnerId = ownerId,
                 Title = title,
                 Type = type,
                 Footprint = footprint,
                 Description = description,
                 Zipcode = zipcode,
                 Price = price,
-                CreationDate = DateTime.Now
+                CreationDate = DateTime.Now.ToString()
             };
 
             string sql = "connect to db todo";

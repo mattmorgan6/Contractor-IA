@@ -23,7 +23,7 @@ namespace ContractorFind.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult CreateGig()
         {
             ViewBag.Message = "Create a gig";
@@ -31,6 +31,7 @@ namespace ContractorFind.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateGig(Gig gig)
@@ -41,7 +42,7 @@ namespace ContractorFind.Controllers
             {
                 string ownerId = User.Identity.GetUserId();
 
-                int recordsCreated = GigManager.PutInGig(gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2); //-2 is the code for no price set
+                int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2); //-2 is the code for no price set
 
                 return RedirectToAction("Index");
             }

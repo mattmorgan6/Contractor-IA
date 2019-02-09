@@ -7,6 +7,8 @@ namespace DataLibrary.Models
 {
     public class Gig
     {
+        public string OwnerId { get; set; }
+
         public string Title { get; set; }
         public string Type { get; set; }
         public int Footprint { get; set; }    //in squarefeet
@@ -14,6 +16,6 @@ namespace DataLibrary.Models
         public int Zipcode { get; set; }
         public int Price { get; set; }  //probably gonna be null
 
-        public DateTime CreationDate { get; set; }
+        public string CreationDate { get; set; }
     }
 }
