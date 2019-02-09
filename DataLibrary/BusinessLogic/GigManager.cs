@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLibrary.Models;
+using DataLibrary.DataAccess;
 
 namespace DataLibrary.BusinessLogic
 {
@@ -12,7 +13,7 @@ namespace DataLibrary.BusinessLogic
 
         public static int PutInGig(string ownerId, string title, string type, int footprint, string description, int zipcode, int price)
         {
-            Gig gig = new Gig
+            Gig data = new Gig
             {
                 OwnerId = ownerId,
                 Title = title,
@@ -24,12 +25,12 @@ namespace DataLibrary.BusinessLogic
                 CreationDate = DateTime.Now.ToString()
             };
 
-            string sql = "connect to db todo";
+            string sql = @"INSERT INTO dbo.Gigs (OwnerId, Title, Type, Footprint, Description, Zipcode, Price, CreationDate) 
+                            VALUES (@OwnerId, @Title, @Type, @Footprint, @Description, @Zipcode, @Price, @CreationDate);";
 
-            //todo return sql save
-            return 1;
+            return SqlDataAccess.SaveData(sql, data);     //goes to the Sql DataAccess class
         }
-
+        
 
     }
 }
