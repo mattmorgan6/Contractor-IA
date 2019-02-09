@@ -5,12 +5,19 @@
 <div class="jumbotron">
     <h1>Home</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+
+    <a href="@Url.Action("Login", null, new { area = string.Empty, controller = "Account" }, Request.Url.Scheme)" class="btn btn-primary btn-lg">
+        <span>Get Started</span>
+    </a>
+
+    <!-- <p><a href="~/Views/Home/Contact.cshtml" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>   -->
+
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Todo: UI information</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
             enables a clean separation of concerns and gives you full control over markup

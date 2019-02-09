@@ -12,7 +12,6 @@ namespace ContractorFind.Models
         public int Footprint { get; set; }    //in squarefeet
         public string Description { get; set; }
         public int Zipcode { get; set; }
-    
-        //price needed in the future possibly.
+        public int Price { get; set; }
     }
 }

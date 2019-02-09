@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.DataAccess
 {
-    class SqlDataAccess
+    public static class SqlDataAccess
     {
+
+        //todo, actually database this stuff. Might want to text marco about if everything is good.
+
     }
 }

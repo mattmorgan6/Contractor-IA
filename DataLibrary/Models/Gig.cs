@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ContractorFind.Models
+namespace DataLibrary.Models
 {
     public class Gig
     {
@@ -12,7 +12,8 @@ namespace ContractorFind.Models
         public int Footprint { get; set; }    //in squarefeet
         public string Description { get; set; }
         public int Zipcode { get; set; }
-    
-        //price needed in the future possibly.
+        public int Price { get; set; }  //probably gonna be null
+
+        public DateTime CreationDate { get; set; }
     }
 }

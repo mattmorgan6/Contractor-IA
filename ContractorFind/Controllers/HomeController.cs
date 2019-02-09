@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ContractorFind.Models;
+using Microsoft.AspNet.Identity;
+using DataLibrary.BusinessLogic;
 
 namespace ContractorFind.Controllers
 {
@@ -33,11 +35,13 @@ namespace ContractorFind.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateGig(Gig gig)
         {
-            ViewBag.Message = "Creat a gig";
+            ViewBag.Message = "Create a gig";
 
             if (ModelState.IsValid)
             {
-                string t = gig.Title;
+                string ownerId = User.Identity.GetUserId();
+
+                int recordsCreated = GigManager.PutInGig(gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2); //-2 is the code for no price set
 
                 return RedirectToAction("Index");
             }
