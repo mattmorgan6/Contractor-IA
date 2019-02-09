@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -13,5 +14,10 @@ namespace ContractorFind.Models
         public string Description { get; set; }
         public int Zipcode { get; set; }
         public int Price { get; set; }
+
+        [DisplayName("Date Created")]
+        public string CreationDate { get; set; }
+        [DisplayName("Price")]
+        public string PriceMessage { get; set; }
     }
 }

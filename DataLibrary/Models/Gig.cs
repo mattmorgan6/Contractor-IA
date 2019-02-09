@@ -17,5 +17,6 @@ namespace DataLibrary.Models
         public int Price { get; set; }  //probably gonna be null
 
         public string CreationDate { get; set; }
+
     }
 }

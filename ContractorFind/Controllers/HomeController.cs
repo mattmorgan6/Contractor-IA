@@ -50,7 +50,46 @@ namespace ContractorFind.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult CustomerCentral()
+        {
+            ViewBag.Message = "View your projects.";
 
+            string id = GetTheCurrentId();
+
+            var data = GigManager.LoadGig(id);
+
+            List<Gig> myListOfGigs = new List<Gig>();
+
+            foreach (var row in data)
+            {
+                Gig g = new Gig
+                {
+                    Title = row.Title,
+                    Type = row.Type,
+                    Footprint = row.Footprint,
+                    Description = row.Description,
+                    Zipcode = row.Zipcode,
+                    Price = row.Price,
+                    CreationDate = row.CreationDate
+                };
+
+                PriceToString(g);
+
+                myListOfGigs.Add(g);
+
+            }
+
+            return View(myListOfGigs);
+        }
+
+        public void PriceToString(Gig gig)
+        {
+            if(gig.Price == -2)
+            {
+                gig.PriceMessage = "No bids";
+            }
+        }
 
 
 
@@ -60,6 +99,12 @@ namespace ContractorFind.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public string GetTheCurrentId()
+        {
+            string a = User.Identity.GetUserId();       //this worked for getting the curent user id
+            return a;
         }
     }
 }

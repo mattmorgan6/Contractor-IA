@@ -30,6 +30,13 @@ namespace DataLibrary.BusinessLogic
 
             return SqlDataAccess.SaveData(sql, data);     //goes to the Sql DataAccess class
         }
+
+        public static List<Gig> LoadGig(string id)
+        {
+            string sql = @"SELECT Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs WHERE OwnerId = @OwnerId;";
+
+            return SqlDataAccess.LoadData<Gig>(sql, id);
+        }
         
 
     }
