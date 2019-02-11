@@ -196,13 +196,19 @@ namespace ContractorFind.Controllers
 
                 int recordsCreated = DataLibrary.BusinessLogic.CompanyManager.PutInCompany(id,
                     company.BusinessName, company.PhoneNumber, company.Description, company.Zipcode);
+
+                int rolesCreated = DataLibrary.BusinessLogic.CompanyManager.SetRole(id, 2);
+
+                return RedirectToAction("Contact", "Home");
             }
+
 
             //todo: set up different admin levels: customer and contractor.
 
-            return RedirectToAction("Contact", "Home");
+            return View();
         }
 
+        
 
         
         // GET: /Account/ConfirmEmail

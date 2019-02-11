@@ -28,5 +28,19 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);     //goes to the Sql DataAccess class
         }
 
+        public static int SetRole(string id, int roleId)
+        {
+            Role Role = new Role
+            {
+                UserId = id,
+                RoleId = roleId
+            };
+
+            string sql = @"INSERT INTO dbo.AspNetUserRoles (UserId, RoleId) VALUES (@UserId, @RoleId)";
+
+            return SqlDataAccess.SaveData(sql, Role);
+        }
+
+
     }
 }
