@@ -270,6 +270,7 @@
     <Content Include="Views\Home\CreateGig.cshtml" />
     <Content Include="Views\Home\CustomerCentral.cshtml" />
     <Content Include="Views\Account\SetUpCompany.cshtml" />
+    <Content Include="Views\Home\CompanyCentral.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

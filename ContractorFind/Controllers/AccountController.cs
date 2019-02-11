@@ -200,7 +200,7 @@ namespace ContractorFind.Controllers
 
             //todo: set up different admin levels: customer and contractor.
 
-            return RedirectToAction("Contact", "Home");     //todo: create a ContractorCentral
+            return RedirectToAction("Contact", "Home");
         }
 
 

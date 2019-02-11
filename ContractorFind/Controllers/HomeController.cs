@@ -91,6 +91,36 @@ namespace ContractorFind.Controllers
             }
         }
 
+        [Authorize]
+        public ActionResult CompanyCentral()        //todo: sort by location, and add a bid page.
+        {
+            ViewBag.Message = "Bid on a project.";
+
+            var data = GigManager.LoadGigs();
+
+            List<Gig> myListOfGigs = new List<Gig>();
+
+            foreach (var row in data)
+            {
+                Gig g = new Gig
+                {
+                    Title = row.Title,
+                    Type = row.Type,
+                    Footprint = row.Footprint,
+                    Description = row.Description,
+                    Zipcode = row.Zipcode,
+                    Price = row.Price,
+                    CreationDate = row.CreationDate
+                };
+
+                PriceToString(g);
+
+                myListOfGigs.Add(g);
+            }
+
+            return View(myListOfGigs);
+        }
+
 
 
 

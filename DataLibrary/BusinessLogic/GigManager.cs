@@ -37,7 +37,13 @@ namespace DataLibrary.BusinessLogic
 
             return SqlDataAccess.LoadData<Gig>(sql, id);
         }
-        
+
+        public static List<Gig> LoadGigs()
+        {
+            string sql = @"SELECT Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs";
+
+            return SqlDataAccess.LoadData<Gig>(sql);
+        }
 
     }
 }
