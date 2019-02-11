@@ -91,7 +91,8 @@ namespace ContractorFind.Controllers
             }
         }
 
-        [Authorize]
+
+        [Authorize(Roles = "Company")]
         public ActionResult CompanyCentral()        //todo: sort by location, and add a bid page.
         {
             ViewBag.Message = "Bid on a project.";
@@ -120,7 +121,6 @@ namespace ContractorFind.Controllers
 
             return View(myListOfGigs);
         }
-
 
 
 
