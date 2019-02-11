@@ -170,6 +170,8 @@ namespace ContractorFind.Controllers
                         return RedirectToAction("SetUpCompany", "Account");
                     }
 
+                    //this was where I tried to set an account to customer.
+
                     return RedirectToAction("CustomerCentral", "Home");
                 }
                 AddErrors(result);
@@ -197,13 +199,10 @@ namespace ContractorFind.Controllers
                 int recordsCreated = DataLibrary.BusinessLogic.CompanyManager.PutInCompany(id,
                     company.BusinessName, company.PhoneNumber, company.Description, company.Zipcode);
 
-                int rolesCreated = DataLibrary.BusinessLogic.CompanyManager.SetRole(id, 2);
+                int rolesCreated = DataLibrary.BusinessLogic.CompanyManager.SetRole(id, 2);     // sets the account to a company/contractor
 
                 return RedirectToAction("Contact", "Home");
             }
-
-
-            //todo: set up different admin levels: customer and contractor.
 
             return View();
         }
