@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CompanyManager.cs" />
     <Compile Include="BusinessLogic\GigManager.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -156,14 +156,21 @@ namespace ContractorFind.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    //redirect if this user is a contractor
+                    bool contractor = model.Contractor;
+                    if(contractor)
+                    {
+                        return RedirectToAction("SetUpCompany", "Account");
+                    }
+
+                    return RedirectToAction("CustomerCentral", "Home");
                 }
                 AddErrors(result);
             }
@@ -171,6 +178,24 @@ namespace ContractorFind.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        public ActionResult SetUpCompany()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SetUpCompany(Company company)
+        {
+            //todo: put the data into a table in the database.
+
+            
+
+            //todo: set up different admin levels: customer and contractor.
+
+            return RedirectToAction("Contact", "Home");
+        }
+
 
         //
         // GET: /Account/ConfirmEmail

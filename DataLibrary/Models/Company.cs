@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataLibrary.Models
+{
+    class Company
+    {
+        public string AccountId { get; set; }
+        public string BusinessName { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Description { get; set; }
+    }
+}
