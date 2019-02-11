@@ -10,7 +10,8 @@ namespace DataLibrary.Models
     {
         public string AccountId { get; set; }
         public string BusinessName { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Description { get; set; }
+        public int Zipcode { get; set; }
     }
 }

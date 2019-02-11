@@ -15,8 +15,6 @@ namespace DataLibrary.DataAccess
         //dapper documentation: https://dapper-tutorial.net/dapper
         //dapper tester: https://dotnetfiddle.net/vIvUNm
 
-        //todo, actually database this stuff. Might want to text marco about if everything is good.
-
         public static string GetConnectionString(string connectionName = "DefaultConnection")
         {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;     //goes out and gets the connection string for the database.

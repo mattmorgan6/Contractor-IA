@@ -8,21 +8,22 @@ using DataLibrary.DataAccess;
 
 namespace DataLibrary.BusinessLogic
 {
-    class CompanyManager
+    public static class CompanyManager
     {
 
-        public static int PutInGig(string accountId, string businessName, int phoneNumber, string description)
+        public static int PutInCompany(string id, string businessName, string phoneNumber, string description, int zipcode)
         {
             Company data = new Company
             {
-                AccountId = accountId,
+                AccountId = id,
                 BusinessName = businessName,
                 PhoneNumber = phoneNumber,
-                Description = description
+                Description = description,
+                Zipcode = zipcode
             };
 
-            string sql = @"INSERT INTO dbo.Gigs (OwnerId, Title, Type, Footprint, Description, Zipcode, Price, CreationDate) 
-                            VALUES (@OwnerId, @Title, @Type, @Footprint, @Description, @Zipcode, @Price, @CreationDate);";
+            string sql = @"INSERT INTO dbo.Companies (AccountId, BusinessName, PhoneNumber, Description, Zipcode) 
+                            VALUES (@AccountId, @BusinessName, @PhoneNumber, @Description, @Zipcode);";
 
             return SqlDataAccess.SaveData(sql, data);     //goes to the Sql DataAccess class
         }

@@ -42,7 +42,7 @@ namespace ContractorFind.Controllers
             {
                 string ownerId = User.Identity.GetUserId();
 
-                int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2); //-2 is the code for no price set
+                int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2);    //-2 is the code for no price set
 
                 return RedirectToAction("Index");
             }

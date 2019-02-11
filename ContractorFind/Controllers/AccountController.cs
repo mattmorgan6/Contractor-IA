@@ -185,19 +185,26 @@ namespace ContractorFind.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SetUpCompany(Company company)
         {
-            //todo: put the data into a table in the database.
+            string s = "s";
 
-            
+            if (ModelState.IsValid)
+            {
+                string id = User.Identity.GetUserId();
+
+                int recordsCreated = DataLibrary.BusinessLogic.CompanyManager.PutInCompany(id,
+                    company.BusinessName, company.PhoneNumber, company.Description, company.Zipcode);
+            }
 
             //todo: set up different admin levels: customer and contractor.
 
-            return RedirectToAction("Contact", "Home");
+            return RedirectToAction("Contact", "Home");     //todo: create a ContractorCentral
         }
 
 
-        //
+        
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
