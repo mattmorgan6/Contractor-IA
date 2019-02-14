@@ -213,6 +213,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\DarkNails.jpg" />
     <Content Include="Content\Images\home_dribbble_4x1.png" />
     <Content Include="Content\Images\logo-transparent-white.png" />
     <Content Include="Content\Images\real-estate-robin-logo-021.png" />
@@ -275,6 +276,7 @@
     <Content Include="Views\Home\CustomerCentral.cshtml" />
     <Content Include="Views\Account\SetUpCompany.cshtml" />
     <Content Include="Views\Home\CompanyCentral.cshtml" />
+    <Content Include="Views\Home\Bid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

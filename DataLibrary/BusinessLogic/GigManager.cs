@@ -33,16 +33,23 @@ namespace DataLibrary.BusinessLogic
 
         public static List<Gig> LoadGig(string id)
         {
-            string sql = @"SELECT Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs WHERE OwnerId = @OwnerId;";
+            string sql = @"SELECT Id, Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs WHERE OwnerId = @OwnerId;";
 
             return SqlDataAccess.LoadData<Gig>(sql, id);
         }
 
         public static List<Gig> LoadGigs()
         {
-            string sql = @"SELECT Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs";
+            string sql = @"SELECT Id, Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs";
 
             return SqlDataAccess.LoadData<Gig>(sql);
+        }
+
+        public static Gig LoadSpecificGig(string gigId)
+        {
+            string sql = @"SELECT Id, Title, Type, Footprint, Description, Zipcode, Price, CreationDate FROM dbo.Gigs WHERE Id = @gigId";
+
+            return (SqlDataAccess.LoadSingularData<Gig>(sql, gigId)).ElementAt(0);
         }
 
     }

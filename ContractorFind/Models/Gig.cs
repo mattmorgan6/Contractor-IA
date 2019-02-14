@@ -8,6 +8,7 @@ namespace ContractorFind.Models
 {
     public class Gig
     {
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Type { get; set; }
         public int Footprint { get; set; }    //in squarefeet
@@ -19,5 +20,15 @@ namespace ContractorFind.Models
         public string CreationDate { get; set; }
         [DisplayName("Price")]
         public string PriceMessage { get; set; }
+
+
+        public void PriceToString()
+        {
+            if (Price == -2)
+            {
+                PriceMessage = "No bids";
+            }
+        }
+
     }
 }

@@ -20,6 +20,14 @@ namespace DataLibrary.DataAccess
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;     //goes out and gets the connection string for the database.
         }
 
+        public static List<T> LoadSingularData<T>(string sql, string id)   //currrent is the Id
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))     //grabs the connection string from the method above.
+            {
+                return cnn.Query<T>(sql, new { GigId = id }).ToList();      //returns a list of generics from the database
+            }
+        }
+
         public static List<T> LoadData<T>(string sql, string current)   //currrent is the Id
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))     //grabs the connection string from the method above.

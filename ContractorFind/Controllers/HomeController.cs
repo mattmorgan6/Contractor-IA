@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -74,7 +74,7 @@ namespace ContractorFind.Controllers
                     CreationDate = row.CreationDate
                 };
 
-                PriceToString(g);
+                g.PriceToString();
 
                 myListOfGigs.Add(g);
 
@@ -83,13 +83,6 @@ namespace ContractorFind.Controllers
             return View(myListOfGigs);
         }
 
-        public void PriceToString(Gig gig)
-        {
-            if(gig.Price == -2)
-            {
-                gig.PriceMessage = "No bids";
-            }
-        }
 
 
         [Authorize(Roles = "Company")]
@@ -105,6 +98,7 @@ namespace ContractorFind.Controllers
             {
                 Gig g = new Gig
                 {
+                    Id = row.Id,
                     Title = row.Title,
                     Type = row.Type,
                     Footprint = row.Footprint,
@@ -114,13 +108,41 @@ namespace ContractorFind.Controllers
                     CreationDate = row.CreationDate
                 };
 
-                PriceToString(g);
+                g.PriceToString();
 
                 myListOfGigs.Add(g);
             }
 
             return View(myListOfGigs);
         }
+
+
+        public ActionResult Bid(string id)
+        {
+            Gig gig;
+
+            var data = GigManager.LoadSpecificGig(id);
+
+            gig = new Gig
+           {
+               Id = data.Id,
+               Title = data.Title,
+               Type = data.Type,
+               Footprint = data.Footprint,
+               Description = data.Description,
+               Zipcode = data.Zipcode,
+               Price = data.Price,
+               CreationDate = data.CreationDate
+           };
+
+            gig.PriceToString();
+
+            return View(gig);
+        }
+
+
+
+
 
 
 
