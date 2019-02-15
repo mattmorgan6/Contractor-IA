@@ -18,7 +18,7 @@
 
                 <div class="navbar-header pull-left">
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <img src="~/Content/Images/logo-transparent-white.png" alt="Site Logo" style="height:30px; width: 30px; margin-top: -5px;" id="yes" />
+                        <img src="~/Content/Images/WhiteBirdLogoCrop.png" alt="Site Logo" style="height:30px; width: 30px; margin-top: -5px;" id="yes" />
                     </a>
                 </div>
 
@@ -44,21 +44,28 @@
             </div>
         </div>
     </div>
+
     <div style="background: url(@Url.Content("~/Content/Images/DarkNails.jpg")) no-repeat 50% 50%; background-size: cover; height: 100%; width: 100%;">
         <div class="container body-content">
-            @RenderBody()
+            <div class="container body-content">
+                @RenderBody()
+
+            </div>
 
         </div>
-
     </div>
 
-    <div class="container body-content">
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Matt Morgan</p>
-            <p id="k">test</p>
-        </footer>
+
+    <div style="width: 100%; background-color: indianred; margin-bottom: -100px; margin-top: -1px;">
+        <div class="container body-content">
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Matt Morgan</p>
+                <p id="k">test</p>
+            </footer>
+        </div>
     </div>
+
 
 
     @Scripts.Render("~/bundles/jquery")

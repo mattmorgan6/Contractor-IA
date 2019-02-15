@@ -218,6 +218,8 @@
     <Content Include="Content\Images\home_dribbble_4x1.png" />
     <Content Include="Content\Images\logo-transparent-white.png" />
     <Content Include="Content\Images\real-estate-robin-logo-021.png" />
+    <Content Include="Content\Images\WhiteBirdLogo.png" />
+    <Content Include="Content\Images\WhiteBirdLogoCrop.png" />
     <Content Include="Content\Styles\LayoutStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
