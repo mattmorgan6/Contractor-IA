@@ -117,7 +117,7 @@ namespace ContractorFind.Controllers
         }
 
 
-        public ActionResult Bid(string id)
+        public ActionResult PlaceBid(string id)
         {
             Gig gig;
 
@@ -140,8 +140,22 @@ namespace ContractorFind.Controllers
             return View(gig);
         }
 
+        [HttpPost]
+        public ActionResult SetNewBid(Bid b)
+        {
+            string str = "wow";
 
+            if (ModelState.IsValid)
+            {
+                string ownerId = User.Identity.GetUserId();
 
+                int recordsCreated; //tod: put bid in database.
+
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
 
 
 

@@ -201,6 +201,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -276,7 +277,8 @@
     <Content Include="Views\Home\CustomerCentral.cshtml" />
     <Content Include="Views\Account\SetUpCompany.cshtml" />
     <Content Include="Views\Home\CompanyCentral.cshtml" />
-    <Content Include="Views\Home\Bid.cshtml" />
+    <Content Include="Views\Home\PlaceBid.cshtml" />
+    <Content Include="Views\Home\SetNewBid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,10 +1,9 @@
 ﻿@model ContractorFind.Models.Gig
-
 @{
-    ViewBag.Title = "Bid";
+    ViewBag.Title = "Place a Bid";
 }
 
-<h2>Bid</h2>
+<h2>Placve a Bid</h2>
 
 <div>
     <h4>Gig</h4>
@@ -76,6 +75,13 @@
 
     </dl>
 </div>
+
+
+
+@Html.RenderAction("SetNewBid")
+
+
+
 <p>
     @Html.ActionLink("Edit", "Edit") |
     @Html.ActionLink("Back to List", "Index")

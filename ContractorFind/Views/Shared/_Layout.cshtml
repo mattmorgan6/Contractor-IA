@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="border: transparent;">
         <div class="container">
 
             <div class="navbar-header">
 
                 <div class="navbar-header pull-left">
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <img src="~/Content/Images/logo-transparent-white.png" alt="Site Logo" style="height:30px; width: 30px; margin-top: -5px;" id="yes"/>
+                        <img src="~/Content/Images/logo-transparent-white.png" alt="Site Logo" style="height:30px; width: 30px; margin-top: -5px;" id="yes" />
                     </a>
                 </div>
 
@@ -32,28 +32,32 @@
 
             </div>
 
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="color: #ffffff;">
                 <ul class="nav navbar-nav">
-                    <li id="test">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("My Gigs", "CustomerCentral", "Home")</li>
-                    <li>@Html.ActionLink("Bid on a Project", "CompanyCentral", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li id="test">@Html.ActionLink("Home", "Index", "Home", null, new { @style = "color:#ffffff;" })</li>
+                    <li>@Html.ActionLink("My Gigs", "CustomerCentral", "Home", null, new { @style = "color:#ffffff;" })</li>
+                    <li>@Html.ActionLink("Bid on a Project", "CompanyCentral", "Home", null, new { @style = "color:#ffffff;" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @style = "color:#ffffff;" })</li>
 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div <!--style="background: url(@Url.Content("~/Content/Images/DarkNails.jpg")) no-repeat 50% 50%; background-size: cover; height: 100%; width: 100%;" -->>
+    <div style="background: url(@Url.Content("~/Content/Images/DarkNails.jpg")) no-repeat 50% 50%; background-size: cover; height: 100%; width: 100%;">
         <div class="container body-content">
             @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Matt Morgan</p>
-                <p id="k">test</p>
-            </footer>
+
         </div>
 
+    </div>
+
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Matt Morgan</p>
+            <p id="k">test</p>
+        </footer>
     </div>
 
 
