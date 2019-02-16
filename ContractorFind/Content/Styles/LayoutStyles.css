@@ -7,4 +7,36 @@
     background-color: dodgerblue;
 }
 
+.testo {
+    color: green;
+}
+
+#ee {
+    border: 2px solid red;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .yeso {
+        height: 500px;
+        background-color: #544437;
+    }
+}
+
+
+
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: indianred;
+        color: white;
+        /* text-align: center; */
+    }
+
+
+
+
 /*    This should be the color of the nav bar links: #ECECEC    */
