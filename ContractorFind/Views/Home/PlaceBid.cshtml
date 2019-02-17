@@ -3,7 +3,7 @@
     ViewBag.Title = "Place a Bid";
 }
 
-<h2>Placve a Bid</h2>
+<h2>Place a Bid</h2>
 
 <div>
     <h4>Gig</h4>
@@ -50,14 +50,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.CreationDate)
         </dt>
 
@@ -74,13 +66,14 @@
         </dd>
 
     </dl>
+
 </div>
 
+<br />
 
-
-@Html.RenderAction("SetNewBid")
-
-
+<a href="@Url.Action("SetNewBid", new { id = Model.Id })" class="btn btn-primary btn-lg" style="margin-bottom: 100px;">
+    <span>Make a bid</span>
+</a>
 
 <p>
     @Html.ActionLink("Edit", "Edit") |

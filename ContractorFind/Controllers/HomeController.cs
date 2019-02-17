@@ -65,6 +65,7 @@ namespace ContractorFind.Controllers
             {
                 Gig g = new Gig
                 {
+                    Id = row.Id,
                     Title = row.Title,
                     Type = row.Type,
                     Footprint = row.Footprint,
@@ -81,6 +82,32 @@ namespace ContractorFind.Controllers
             }
 
             return View(myListOfGigs);
+        }
+
+        [Authorize]
+        public ActionResult ViewBids(string gigId)
+        {
+            ViewBag.Message = "View the bids on this gig";
+
+            var data = BidManager.LoadBids(gigId);
+
+            List<Bid> listOfBids = new List<Bid>();
+
+            foreach (var row in data)
+            {
+                Bid bid = new Bid()
+                {
+                    Id = row.Id,
+                    Price = row.Price,
+                    CompanyId = row.CompanyId,
+                    DateCreated = row.DateCreated,
+                    GigId = row.GigId
+                };
+
+                listOfBids.Add(bid);
+            }
+
+            return View(listOfBids);
         }
 
 
@@ -140,21 +167,54 @@ namespace ContractorFind.Controllers
             return View(gig);
         }
 
-        [HttpPost]
-        public ActionResult SetNewBid(Bid b)
-        {
-            string str = "wow";
 
+        public ActionResult SetNewBid()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SetNewBid(Bid bid, int Id)
+        {
             if (ModelState.IsValid)
             {
-                string ownerId = User.Identity.GetUserId();
+                bid.CompanyId = GetTheCurrentCompanyId();
 
-                int recordsCreated; //tod: put bid in database.
+                bid.DateCreated = DateTime.Now.ToString();
 
-                return RedirectToAction("Index");
+                bid.GigId = Id;
+
+                int recordsCreated  = BidManager.PutInBid(bid.Price, bid.CompanyId, bid.DateCreated, bid.GigId);
+
+                return RedirectToAction("CompanyCentral");
             }
 
             return View();
+        }
+
+        public ActionResult ViewBidsMade()
+        {
+            int companyId = GetTheCurrentCompanyId();
+
+            List<Bid> bidsList = new List<Bid>();              //go to the database and get all of the bids made by a company
+
+            var data = BidManager.LoadBidsForCompany(companyId);
+
+            foreach(var row in data)
+            {
+                bidsList.Add( new Bid  {
+                Id = row.Id,
+                Price = row.Price,
+                CompanyId = row.CompanyId,
+                DateCreated = row.DateCreated,
+                GigId = row.GigId
+                });
+            }
+
+
+            return View(bidsList);
         }
 
 
@@ -171,6 +231,13 @@ namespace ContractorFind.Controllers
         {
             string a = User.Identity.GetUserId();       //this worked for getting the curent user id
             return a;
+        }
+
+        public int GetTheCurrentCompanyId()
+        {
+            string userId = User.Identity.GetUserId();
+            int companyId = CompanyManager.RetrieveCompanyId(userId);
+            return companyId;
         }
     }
 }

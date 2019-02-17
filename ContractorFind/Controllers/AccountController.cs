@@ -79,7 +79,8 @@ namespace ContractorFind.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("CustomerCentral", "Home", null);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -190,7 +191,6 @@ namespace ContractorFind.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SetUpCompany(Company company)
         {
-            string s = "s";
 
             if (ModelState.IsValid)
             {
@@ -201,7 +201,7 @@ namespace ContractorFind.Controllers
 
                 int rolesCreated = DataLibrary.BusinessLogic.CompanyManager.SetRole(id, 2);     // sets the account to a company/contractor
 
-                return RedirectToAction("Contact", "Home");
+                return RedirectToAction("ContractorCentral", "Home");
             }
 
             return View();

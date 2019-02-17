@@ -281,6 +281,8 @@
     <Content Include="Views\Home\CompanyCentral.cshtml" />
     <Content Include="Views\Home\PlaceBid.cshtml" />
     <Content Include="Views\Home\SetNewBid.cshtml" />
+    <Content Include="Views\Home\ViewBids.cshtml" />
+    <Content Include="Views\Home\ViewBidsMade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

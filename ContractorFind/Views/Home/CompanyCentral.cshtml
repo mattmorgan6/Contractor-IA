@@ -7,7 +7,7 @@
 <h2>Company Central</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("View my current bids", "ViewBidsMade")
 </p>
 <table class="table">
     <tr>
@@ -65,7 +65,7 @@
             @Html.DisplayFor(modelItem => item.PriceMessage)
         </td>
         <td>
-            @Html.ActionLink("Bid", "Bid", new { id=item.Id }) |
+            @Html.ActionLink("Bid", "PlaceBid", new { id=item.Id }) |
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })

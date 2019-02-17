@@ -41,6 +41,13 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, Role);
         }
 
+        public static int RetrieveCompanyId(string userId)
+        {
+            string sql = @"SELECT Id FROM dbo.Companies WHERE AccountId = @gigId";
+
+            return SqlDataAccess.LoadSingularData<int>(sql, userId).ElementAt(0);
+        }
+
 
     }
 }
