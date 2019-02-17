@@ -144,6 +144,7 @@ namespace ContractorFind.Controllers
         }
 
 
+        [Authorize(Roles = "Company")]
         public ActionResult PlaceBid(string id)
         {
             Gig gig;
@@ -174,6 +175,7 @@ namespace ContractorFind.Controllers
         }
 
 
+        [Authorize(Roles = "Company")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SetNewBid(Bid bid, int Id)
@@ -194,6 +196,7 @@ namespace ContractorFind.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult ViewBidsMade()
         {
             int companyId = GetTheCurrentCompanyId();
@@ -217,6 +220,23 @@ namespace ContractorFind.Controllers
             return View(bidsList);
         }
 
+        [Authorize]
+        public ActionResult ViewCompany(int companyId)
+        {
+            //go into the dbo.companies and get information
+
+            var data = CompanyManager.LoadCompany(companyId);
+
+            Company c = new Company
+            {
+                BusinessName = data.BusinessName,
+                Description = data.Description,
+                PhoneNumber = data.PhoneNumber,
+                Zipcode = data.Zipcode
+            };
+
+            return View(c);
+        }
 
 
 

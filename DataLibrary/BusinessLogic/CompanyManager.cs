@@ -48,6 +48,12 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadSingularData<int>(sql, userId).ElementAt(0);
         }
 
+        public static Company LoadCompany(int companyId)
+        {
+            string sql = @"SELECT AccountId, BusinessName, PhoneNumber, Description, ZipCode FROM dbo.Companies WHERE Id = @GigId";
+
+            return SqlDataAccess.LoadSingularData<Company>(sql, companyId.ToString()).ElementAt(0);
+        }
 
     }
 }

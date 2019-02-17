@@ -6,9 +6,14 @@
 
 <h2>Company Central</h2>
 
+<br />
+
 <p>
     @Html.ActionLink("View my current bids", "ViewBidsMade")
 </p>
+
+<br />
+
 <table class="table">
     <tr>
         <th>
@@ -25,9 +30,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Zipcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreationDate)
@@ -54,9 +56,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Zipcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreationDate)

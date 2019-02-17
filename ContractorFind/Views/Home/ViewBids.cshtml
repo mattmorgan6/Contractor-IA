@@ -38,8 +38,9 @@
             @Html.DisplayFor(modelItem => item.GigId)
         </td>
         <td>
-            @Html.ActionLink("Message", "Edit", new { id=item.Id })
-        </td>
+            @Html.ActionLink("View company information", "ViewCompany", new { companyId = item.CompanyId }) | 
+            @Html.ActionLink("Message", "Edit", new { id = item.Id })
+            </td>
     </tr>
 }
 

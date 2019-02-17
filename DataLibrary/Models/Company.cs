@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
-    class Company
+    public class Company
     {
         public string AccountId { get; set; }
         public string BusinessName { get; set; }
