@@ -1,0 +1,81 @@
+﻿@model ContractorFind.Models.Gig
+
+@{
+    ViewBag.Title = "DeleteGig";
+}
+
+<h2>Are you sure you want to delete the project?</h2>
+
+<div>
+    <h4>Gig</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Footprint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Footprint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceMessage)
+        </dd>
+
+    </dl>
+</div>
+
+
+<a href="@Url.Action("DeleteGigPerm", new { gigId = Model.Id })" class="btn btn-primary btn-lg" style="margin-bottom: 100px;">
+    <span>Delete the project.</span>
+</a>
+
+<br />
+
+<div>
+    @Html.ActionLink("Back to List Instead", "CustomerCentral")
+</div>

@@ -238,6 +238,31 @@ namespace ContractorFind.Controllers
             return View(c);
         }
 
+        public ActionResult DeleteGig(string gigId)
+        {
+            var data = GigManager.LoadSpecificGig(gigId);
+
+            Gig gig = new Gig
+            {
+                Id = data.Id,
+                Title = data.Title,
+                Type = data.Type,
+                Footprint = data.Footprint,
+                Description = data.Description,
+                Zipcode = data.Zipcode,
+                Price = data.Price,
+                CreationDate = data.CreationDate
+            };
+
+            return View(gig);
+        }
+
+        public ActionResult DeleteGigPerm(string gigId)
+        {
+            GigManager.RemoveAGig(gigId);
+                
+            return RedirectToAction("CustomerCentral");
+        }
 
 
         public ActionResult Contact()

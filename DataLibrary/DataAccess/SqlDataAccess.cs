@@ -52,5 +52,13 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public static int DeleteData(string sql, string gigId)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))     //grabs the connection string from the method above.
+            {
+                return cnn.Execute(sql, new { GigId = gigId });      //puts in the data to save in db. Returns the number of records affected.
+            }
+        }
+
     }
 }

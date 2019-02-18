@@ -52,5 +52,13 @@ namespace DataLibrary.BusinessLogic
             return (SqlDataAccess.LoadSingularData<Gig>(sql, gigId)).ElementAt(0);
         }
 
+
+        public static int RemoveAGig(string gigId)
+        {
+            string sql = @"DELETE FROM dbo.Gigs WHERE Id = @gigId";
+
+            return SqlDataAccess.DeleteData(sql, gigId);
+
+        }
     }
 }

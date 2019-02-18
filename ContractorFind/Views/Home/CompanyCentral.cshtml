@@ -4,15 +4,16 @@
     ViewBag.Title = "CompanyCentral";
 }
 
-<h2>Company Central</h2>
-
+<br />
 <br />
 
-<p>
+<h4>
     @Html.ActionLink("View my current bids", "ViewBidsMade")
-</p>
+</h4>
 
 <br />
+
+<h3>Currently Available Projects to Bid On</h3>
 
 <table class="table">
     <tr>
@@ -64,10 +65,8 @@
             @Html.DisplayFor(modelItem => item.PriceMessage)
         </td>
         <td>
-            @Html.ActionLink("Bid", "PlaceBid", new { id=item.Id }) |
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Bid", "PlaceBid", new { id=item.Id }) | 
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
