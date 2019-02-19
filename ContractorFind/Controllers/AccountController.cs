@@ -55,9 +55,11 @@ namespace ContractorFind.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, string reason)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.LoginMessage = reason;
+            ViewBag.Title = "Login";
             return View();
         }
 
@@ -191,7 +193,6 @@ namespace ContractorFind.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SetUpCompany(Company company)
         {
-
             if (ModelState.IsValid)
             {
                 string id = User.Identity.GetUserId();
@@ -201,7 +202,9 @@ namespace ContractorFind.Controllers
 
                 int rolesCreated = DataLibrary.BusinessLogic.CompanyManager.SetRole(id, 2);     // sets the account to a company/contractor
 
-                return RedirectToAction("ContractorCentral", "Home");
+                string reason = "Re-login to confirm your account.";
+
+                return RedirectToAction("Login", "Account", new { reason });
             }
 
             return View();

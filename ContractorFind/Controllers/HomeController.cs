@@ -284,5 +284,6 @@ namespace ContractorFind.Controllers
             int companyId = CompanyManager.RetrieveCompanyId(userId);
             return companyId;
         }
+
     }
 }
