@@ -168,7 +168,7 @@ namespace ContractorFind.Controllers
             return View(gig);
         }
 
-
+        [Authorize]
         public ActionResult SetNewBid()
         {
             return View();
@@ -285,5 +285,9 @@ namespace ContractorFind.Controllers
             return companyId;
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }

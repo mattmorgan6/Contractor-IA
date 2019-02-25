@@ -66,8 +66,7 @@
             @Html.DisplayFor(modelItem => item.PriceMessage)
         </td>
         <td>
-            @Html.ActionLink("Bid", "PlaceBid", new { id=item.Id }) | 
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Bid", "PlaceBid", new { id=item.Id })
         </td>
     </tr>
 }

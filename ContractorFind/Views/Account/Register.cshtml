@@ -27,6 +27,7 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            <p style="margin-top: 10px;">Passwords must contain an uppercase letter, a number, and a special character.</p>
         </div>
     </div>
 
@@ -42,7 +43,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="Register" style="border: 1px solid indianred;"/>
         </div>
     </div>
 }

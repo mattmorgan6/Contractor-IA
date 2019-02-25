@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<ContractorFind.Models.Bid>
 
 @{
-    ViewBag.Title = "ViewBidsMade";
+    ViewBag.Title = "View Bids Made";
 }
 
-<h2>ViewBidsMade</h2>
+<h2>View Bids Made</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<br />
+
 <table class="table">
     <tr>
         <th>
@@ -43,3 +42,9 @@
 }
 
 </table>
+
+<br />
+
+<div>
+    @Html.ActionLink("Back to Contractor Portal", "CompanyCentral")
+</div>
