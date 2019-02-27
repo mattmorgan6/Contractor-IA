@@ -11,20 +11,20 @@ namespace ContractorFind.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index()     //the homepage for the application
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About()     //the about page for the application
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        [Authorize]
-        public ActionResult CreateGig()
+        [Authorize]     //authorize means the user has to be signed in as a customer or a contractor.
+        public ActionResult CreateGig()     //view where a customer can create a gig
         {
             ViewBag.Message = "Create a gig";
 
@@ -34,7 +34,7 @@ namespace ContractorFind.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateGig(Gig gig)
+        public ActionResult CreateGig(Gig gig)      //takes the data from view and adds the gig to the database.
         {
             ViewBag.Message = "Create a gig";
 
@@ -51,7 +51,7 @@ namespace ContractorFind.Controllers
         }
 
         [Authorize]
-        public ActionResult CustomerCentral()
+        public ActionResult CustomerCentral()       //view where customer can view a list of their projects
         {
             ViewBag.Message = "View your projects.";
 
@@ -85,7 +85,7 @@ namespace ContractorFind.Controllers
         }
 
         [Authorize]
-        public ActionResult ViewBids(string gigId)
+        public ActionResult ViewBids(string gigId)      //View where contractor can see what bids he has made
         {
             ViewBag.Message = "View the bids on this gig";
 
@@ -112,8 +112,8 @@ namespace ContractorFind.Controllers
 
 
 
-        [Authorize(Roles = "Company")]
-        public ActionResult CompanyCentral()        //todo: sort by location, and add a bid page.
+        [Authorize(Roles = "Company")]      //this means the user must be signed in as a contractor
+        public ActionResult CompanyCentral()        //View where contractors can see what projects are available to have bids on
         {
             ViewBag.Message = "Bid on a project.";
 
@@ -146,7 +146,7 @@ namespace ContractorFind.Controllers
 
 
         [Authorize(Roles = "Company")]
-        public ActionResult PlaceBid(string id)
+        public ActionResult PlaceBid(string id)     //View where contractor can place a bid on a specific gig
         {
             Gig gig;
 
@@ -179,7 +179,7 @@ namespace ContractorFind.Controllers
         [Authorize(Roles = "Company")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SetNewBid(Bid bid, int Id)
+        public ActionResult SetNewBid(Bid bid, int Id)      //takes the data for the new bid and saves it
         {
             if (ModelState.IsValid)
             {
@@ -198,7 +198,7 @@ namespace ContractorFind.Controllers
         }
 
         [Authorize]
-        public ActionResult ViewBidsMade()
+        public ActionResult ViewBidsMade()      //view for a contractor to see what bids have been made on a gig
         {
             int companyId = GetTheCurrentCompanyId();
 
@@ -222,10 +222,8 @@ namespace ContractorFind.Controllers
         }
 
         [Authorize]
-        public ActionResult ViewCompany(int companyId)
+        public ActionResult ViewCompany(int companyId)      //View for a customer to see what business made the bid on their project
         {
-            //go into the dbo.companies and get information
-
             var data = CompanyManager.LoadCompany(companyId);
 
             Company c = new Company
@@ -239,7 +237,7 @@ namespace ContractorFind.Controllers
             return View(c);
         }
 
-        public ActionResult DeleteGig(string gigId)
+        public ActionResult DeleteGig(string gigId)     //View confirms to the customer that he/she wants to delete the project
         {
             var data = GigManager.LoadSpecificGig(gigId);
 
@@ -258,7 +256,7 @@ namespace ContractorFind.Controllers
             return View(gig);
         }
 
-        public ActionResult DeleteGigPerm(string gigId)
+        public ActionResult DeleteGigPerm(string gigId)     //permanantly deletes the gig from the database
         {
             GigManager.RemoveAGig(gigId);
                 
@@ -266,32 +264,32 @@ namespace ContractorFind.Controllers
         }
 
 
-        public ActionResult Contact()
+        public ActionResult Contact()       //View to show contact information. currently not visible on the nav bar
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
 
-        public string GetTheCurrentId()
+        public string GetTheCurrentId()     //returns the id of the current user
         {
-            string a = User.Identity.GetUserId();       //this worked for getting the curent user id
+            string a = User.Identity.GetUserId();       //this works for getting the curent user id
             return a;
         }
 
-        public int GetTheCurrentCompanyId()
+        public int GetTheCurrentCompanyId()     //returns the id of the company that the contractor is linked to.
         {
             string userId = User.Identity.GetUserId();
             int companyId = CompanyManager.RetrieveCompanyId(userId);
             return companyId;
         }
 
-        public ActionResult Error()
+        public ActionResult Error()     //returns error page for view
         {
             return View();
         }
 
-        public int FindLowestBid(int id)
+        public int FindLowestBid(int id)        //finds the lowest bid on a specific gig from the database.
         {
             //find all bids with the gig id
             //find the lowest bid int
