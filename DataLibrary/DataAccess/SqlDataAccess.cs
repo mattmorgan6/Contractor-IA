@@ -60,5 +60,15 @@ namespace DataLibrary.DataAccess
             }
         }
 
+
+            
+        public static List<T> LoadNum<T>(string sql, int id)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))     //grabs the connection string from the method above.
+            {
+                return cnn.Query<T>(sql, new { Id = id }).ToList();      //returns a list of generics from the database
+            }
+        } 
+
     }
 }

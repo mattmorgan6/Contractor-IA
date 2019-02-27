@@ -12,9 +12,6 @@
            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CompanyId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
         <th>
@@ -29,18 +26,14 @@
             $@Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GigId)
         </td>
         <td>
-            @Html.ActionLink("View company information", "ViewCompany", new { companyId = item.CompanyId }) | 
-            @Html.ActionLink("Message", "Edit", new { id = item.Id })
-            </td>
+            @Html.ActionLink("View company information", "ViewCompany", new { companyId = item.CompanyId })
+        </td>
     </tr>
 }
 

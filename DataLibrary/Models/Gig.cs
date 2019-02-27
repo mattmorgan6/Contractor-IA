@@ -7,7 +7,7 @@ namespace DataLibrary.Models
 {
     public class Gig
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string OwnerId { get; set; }
 

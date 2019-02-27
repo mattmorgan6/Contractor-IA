@@ -44,7 +44,7 @@ namespace ContractorFind.Controllers
 
                 int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2);    //-2 is the code for no price set
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CustomerCentral");
             }
 
             return View();
@@ -75,12 +75,12 @@ namespace ContractorFind.Controllers
                     CreationDate = row.CreationDate
                 };
 
+                g.Price = FindLowestBid(Convert.ToInt32(g.Id));     //updates the price to the lowest bid.
+
                 g.PriceToString();
 
                 myListOfGigs.Add(g);
-
             }
-
             return View(myListOfGigs);
         }
 
@@ -135,6 +135,7 @@ namespace ContractorFind.Controllers
                     CreationDate = row.CreationDate
                 };
 
+                g.Price = FindLowestBid(Convert.ToInt32(g.Id));
                 g.PriceToString();
 
                 myListOfGigs.Add(g);
@@ -288,6 +289,15 @@ namespace ContractorFind.Controllers
         public ActionResult Error()
         {
             return View();
+        }
+
+        public int FindLowestBid(int id)
+        {
+            //find all bids with the gig id
+            //find the lowest bid int
+
+            var data = BidManager.FindLowestBid(id);
+            return data.ElementAt(0).Price;
         }
     }
 }

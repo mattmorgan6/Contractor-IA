@@ -39,5 +39,12 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<Bid>(sql, companyId.ToString());
         }
 
+        public static List<Bid> FindLowestBid(int id)
+        {
+            // string sql = @"SELECT * FROM dbo.bids WHERE GigId = @OwnerId";
+            string sql = @"SELECT MIN(Price) AS Price FROM dbo.bids WHERE GigId = @Id";
+
+            return SqlDataAccess.LoadNum<Bid>(sql, id);
+        }
     }
 }
