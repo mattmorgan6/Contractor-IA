@@ -15,7 +15,7 @@ namespace DataLibrary.Models
         public string Type { get; set; }
         public int Footprint { get; set; }    //in squarefeet
         public string Description { get; set; }
-        public int Zipcode { get; set; }
+        public string Zipcode { get; set; }
         public int Price { get; set; }  //probably gonna be null
 
         public string CreationDate { get; set; }

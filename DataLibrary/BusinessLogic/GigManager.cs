@@ -11,7 +11,7 @@ namespace DataLibrary.BusinessLogic
     public static class GigManager
     {
 
-        public static int PutInGig(string ownerId, string title, string type, int footprint, string description, int zipcode, int price)
+        public static int PutInGig(string ownerId, string title, string type, int footprint, string description, string zipcode, int price)
         {
             Gig data = new Gig      //creates a gig object specifically to put into the database
             {

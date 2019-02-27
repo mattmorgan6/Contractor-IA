@@ -8,7 +8,7 @@ namespace ContractorFind.Models
 {
     public class Company
     {
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Business Name cannot be longer that 50 characters, and must be at least three characters long.")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Business Name cannot be longer than 50 characters, and must be at least three characters long.")]
         public string BusinessName { get; set; }
 
         [StringLength(24, ErrorMessage = "Phone Number cannot be longer that 24 characters.")]

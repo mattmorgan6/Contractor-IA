@@ -22,8 +22,9 @@ namespace ContractorFind.Models
         [StringLength(3000, MinimumLength = 6, ErrorMessage = "Description cannot be longer that 3000 characters.")]
         public string Description { get; set; }
 
-        [Range(0, 99999, ErrorMessage = "You need to enter a valid ZipCode")]      //sets up range of data allowed to be entered
-        public int Zipcode { get; set; }
+        [StringLength(10, MinimumLength = 5, ErrorMessage = "You need to enter a valid ZipCode")]      //sets up range of data allowed to be entered
+        public string Zipcode { get; set; }
+
         public int Price { get; set; }
 
         [DisplayName("Date Created")]
