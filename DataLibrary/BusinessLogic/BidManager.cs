@@ -25,21 +25,21 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, bid);
         }
 
-        public static List<Bid> LoadBids(string gigId)
+        public static List<Bid> LoadBids(string gigId)      //load a list of bids for a single id
         {
             string sql = @"SELECT * FROM dbo.Bids WHERE GigId = @OwnerId";
 
             return SqlDataAccess.LoadData<Bid>(sql, gigId);
         }
 
-        public static List<Bid> LoadBidsForCompany(int companyId)
+        public static List<Bid> LoadBidsForCompany(int companyId)   //load bids created by a specific company
         {
             string sql = @"SELECT * FROM dbo.bids WHERE CompanyId = @OwnerId";
 
             return SqlDataAccess.LoadData<Bid>(sql, companyId.ToString());
         }
 
-        public static List<Bid> FindLowestBid(int id)
+        public static List<Bid> FindLowestBid(int id)       //find the lowest bid for a specific gig
         {
             // string sql = @"SELECT * FROM dbo.bids WHERE GigId = @OwnerId";
             string sql = @"SELECT MIN(Price) AS Price FROM dbo.bids WHERE GigId = @Id";

@@ -31,21 +31,21 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);     //goes to the SqlDataAccess class and runs the SaveData method to put data in the table
         }
 
-        public static List<Gig> LoadGig(string id)
+        public static List<Gig> LoadGig(string id)      //load the gigs created by the same user
         {
             string sql = @"SELECT Id, Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs WHERE OwnerId = @OwnerId;";
 
             return SqlDataAccess.LoadData<Gig>(sql, id);
         }
 
-        public static List<Gig> LoadGigs()
+        public static List<Gig> LoadGigs()      //load all gigs
         {
             string sql = @"SELECT Id, Title, Type, Footprint, Description, ZipCode, Price, CreationDate FROM dbo.Gigs";
 
             return SqlDataAccess.LoadData<Gig>(sql);
         }
 
-        public static Gig LoadSpecificGig(string gigId)
+        public static Gig LoadSpecificGig(string gigId)     //load one gig with specific id
         {
             string sql = @"SELECT Id, Title, Type, Footprint, Description, Zipcode, Price, CreationDate FROM dbo.Gigs WHERE Id = @gigId";
 
@@ -53,7 +53,7 @@ namespace DataLibrary.BusinessLogic
         }
 
 
-        public static int RemoveAGig(string gigId)
+        public static int RemoveAGig(string gigId)  
         {
             string sql = @"DELETE FROM dbo.Gigs WHERE Id = @gigId";
 

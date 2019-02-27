@@ -41,7 +41,7 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, Role);
         }
 
-        public static int RetrieveCompanyId(string userId)
+        public static int RetrieveCompanyId(string userId)      //grabs the companyId for a gig.
         {
             string sql = @"SELECT Id FROM dbo.Companies WHERE AccountId = @gigId";
 
