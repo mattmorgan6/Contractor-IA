@@ -220,6 +220,7 @@
     <Content Include="Content\Images\real-estate-robin-logo-021.png" />
     <Content Include="Content\Images\WhiteBirdLogo.png" />
     <Content Include="Content\Images\WhiteBirdLogoCrop.png" />
+    <Content Include="Content\Images\Whitewrenchlogo6.png" />
     <Content Include="Content\Styles\LayoutStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -280,13 +281,13 @@
     <Content Include="Views\Home\CreateGig.cshtml" />
     <Content Include="Views\Home\CustomerCentral.cshtml" />
     <Content Include="Views\Account\SetUpCompany.cshtml" />
-    <Content Include="Views\Home\CompanyCentral.cshtml" />
     <Content Include="Views\Home\PlaceBid.cshtml" />
     <Content Include="Views\Home\SetNewBid.cshtml" />
     <Content Include="Views\Home\ViewBids.cshtml" />
     <Content Include="Views\Home\ViewBidsMade.cshtml" />
     <Content Include="Views\Home\ViewCompany.cshtml" />
     <Content Include="Views\Home\DeleteGig.cshtml" />
+    <Content Include="Views\Home\CompanyCentral.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,69 +6,46 @@
 
 <h2>My Projects</h2>
 
-<br />
+<br /> 
 
-<p>
-    @Html.ActionLink("Create New Project", "CreateGig", "Home")
-</p>
+<p><a href="@Url.Action("CreateGig", "Home")" class="btn btn-lg btn-primary">Create New Project &raquo;</a></p>
 
 <br />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Footprint)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Zipcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PriceMessage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
+@foreach (var item in Model)
+{
+    <div style="border: 1px solid #cdcdcd; margin-top: 16px; padding: 14px; border-radius: 4px; background-color: #fdfdfd;" class="list-group">
+        <div style="width:100%; text-align: center; font-size: 18px; margin-bottom: 10px;">
             @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Footprint) sq ft
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zipcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriceMessage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationDate)
-        </td>
-        <td>
-            @Html.ActionLink("View Bids", "ViewBids", new { gigId = item.Id }) | 
-            @Html.ActionLink("Edit", "Error", new { /* id=item.PrimaryKey */ }) | 
-            @Html.ActionLink("Delete", "DeleteGig", new {  gigId=item.Id })
-        </td>
-    </tr>
+        </div>
+        <div style="width: 50%; float: left; text-align: center;">
+            <div>
+                @Html.DisplayFor(modelItem => item.Type)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Footprint) sq ft
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </div>
+        </div>
+        <div style="width: 50%; float: left; text-align: center;">
+            <div>
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Zipcode)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.PriceMessage)
+            </div>
+        </div>
+        <div style="width: 100%; text-align: center;">
+            @Html.ActionLink("View Bids", "ViewBids", new { gigId = item.Id }) |
+            @Html.ActionLink("Edit", "Error", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "DeleteGig", new { gigId = item.Id })
+        </div>
+    </div>
 }
 
-</table>
+

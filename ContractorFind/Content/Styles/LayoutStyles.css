@@ -37,6 +37,10 @@
     }
 
 
-
-
 /*    This should be the color of the nav bar links: #ECECEC    */
+
+
+#GigD {
+    border: 2px solid indianred;
+    margin-top: 30px;
+}
