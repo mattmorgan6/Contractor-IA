@@ -221,6 +221,7 @@
     <Content Include="Content\Images\WhiteBirdLogo.png" />
     <Content Include="Content\Images\WhiteBirdLogoCrop.png" />
     <Content Include="Content\Images\Whitewrenchlogo6.png" />
+    <Content Include="Content\Images\Whitewrenchlogo9.png" />
     <Content Include="Content\Styles\LayoutStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

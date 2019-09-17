@@ -60,8 +60,6 @@ namespace DataLibrary.DataAccess
             }
         }
 
-
-            
         public static List<T> LoadNum<T>(string sql, int id)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))     //grabs the connection string from the method above.

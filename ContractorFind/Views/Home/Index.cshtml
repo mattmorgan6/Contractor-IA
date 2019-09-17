@@ -2,50 +2,49 @@
     ViewBag.Title = "Home Page";
 }
 
-<div id="content" style="background: url(@Url.Content("~/Content/Images/DarkNails.jpg")) no-repeat 50% 50%; background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;">
-    
-    <div class="container body-content">
-        <div class="jumbotron" style="margin-top: 72px;">
-            <h1>Home</h1>
-            <p class="lead">Find the right man for your job at the lowest price.   That simple.</p>
+<section>
+
+    <div id="content" style="background: url(@Url.Content("~/Content/Images/DarkNails.jpg")) no-repeat 50% 50%; background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;">
+
+        <div class="container body-content">
+            <div class="jumbotron" style="margin-top: 72px;">
+                <h1>Home</h1>
+                <p class="lead">Find the right man for your job at the lowest price.   That simple.</p>
 
 
-            <a href="@Url.Action("Login", null, new { area = string.Empty, controller = "Account" }, Request.Url.Scheme)" class="btn btn-primary btn-lg">
-                <span>Get Started</span>
-            </a>
+                <a href="@Url.Action("Login", null, new { area = string.Empty, controller = "Account" }, Request.Url.Scheme)" class="btn btn-primary btn-lg">
+                    <span>Get Started</span>
+                </a>
 
-            <!-- <p><a href="~/Views/Home/Contact.cshtml" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>   -->
+                <!-- <p><a href="~/Views/Home/Contact.cshtml" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>   -->
+
+            </div>
+
+            <div class="row" style="color: #ffffff;">
+                <div class="col-md-6">
+                    <h2>Looking to get a project done&#63;</h2>
+                    <p>
+                        Create an account from which you can post the project details under the "My Projects" tab. Contractors will then bid on the gig, giving you the lowest price!
+                    </p>
+                    <p><a href="@Url.Action("Register", "Account")" class="btn btn-default">Sign Up &raquo;</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Contractor looking for work&#63;</h2>
+                    <p>Enroll as a contractor to make bids on gigs. Once you have created an account visit the Contractor Portal to view gigs to bid on!</p>
+                    <p><a href="@Url.Action("CompanyCentral", "Home")" class="btn btn-default">Contractor Portal &raquo;</a></p>
+                </div>
+            </div>
 
         </div>
 
-        <div class="row" style="color: #ffffff;">
-            <div class="col-md-4">
-                <h2>UI information</h2>
-                <p>
-                    This informational paragraph can be updated easily and filled out so that it reflects the actual webpage.
-                </p>
-                <p><a href="@Url.Action("About", "Home")" class="btn btn-default">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Status</h2>
-                <p>Currently the web app is still in development, but more information will be filled out and testing will be conducted.</p>
-                <p><a href="@Url.Action("About", "Home")" class="btn btn-default">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Web Hosting</h2>
-                <p> Right now this web app is being hosted on azure, with a azurewebsites.net domain. A custom domain can be used for a monthly price.</p>
-                <p><a href="@Url.Action("About", "Home")" class="btn btn-default">Learn more &raquo;</a></p>
-            </div>
-        </div>
 
     </div>
 
-
-</div>
+</section>
