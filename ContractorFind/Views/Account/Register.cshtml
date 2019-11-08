@@ -27,7 +27,7 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-            <p style="margin-top: 10px;">Passwords must contain an uppercase letter, a number, and a special character.</p>
+            <p style="margin-top: 10px;">Passwords must contain at least one number or non-letter character.</p>
         </div>
     </div>
 
