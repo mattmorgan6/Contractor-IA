@@ -40,11 +40,16 @@ namespace ContractorFind.Controllers
 
             if (ModelState.IsValid)
             {
-                string ownerId = User.Identity.GetUserId();
+                if(!string.IsNullOrWhiteSpace(gig.Title) && !string.IsNullOrWhiteSpace(gig.Zipcode)) {
 
-                int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2);    //-2 is the code for no price set
+                    string ownerId = User.Identity.GetUserId();
 
-                return RedirectToAction("CustomerCentral");
+                    int recordsCreated = GigManager.PutInGig(ownerId, gig.Title, gig.Type, gig.Footprint, gig.Description, gig.Zipcode, -2);    //-2 is the code for no price set
+
+                    return RedirectToAction("CustomerCentral");
+                }
+
+
             }
 
             return View();
